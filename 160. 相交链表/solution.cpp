@@ -6,6 +6,18 @@ struct ListNode {
 
 class Solution {
 public:
+    ListNode *getIntersectionNode1(ListNode *headA, ListNode *headB) {
+        ListNode *pA = headA, *pB = headB;
+
+        while (pA != pB) {
+            pA = (pA == nullptr ? headB : pA->next);
+            pB = (pB == nullptr ? headA : pB->next);
+        } 
+
+        return pA;
+    }
+
+
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
         if (headA == nullptr || headB == nullptr) {
             return nullptr;
